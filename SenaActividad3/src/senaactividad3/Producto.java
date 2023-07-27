@@ -10,23 +10,24 @@ package senaactividad3;
  * @author Julian
  */
 public class Producto {
-    
-    
+
     private String nombre;
     private int identificacion;
     private int numeroSerie;
     private double precio;
-    private String Proveedor;
+    private String proveedor;
+    private int cantidad;
 
     public Producto() {
     }
 
-    public Producto(String nombre, int identificacion, int numeroSerie, double precio, String Proveedor) {
+    public Producto(String nombre, int identificacion, int numeroSerie, double precio, String proveedor,int cantidad) {
         this.nombre = nombre;
         this.identificacion = identificacion;
         this.numeroSerie = numeroSerie;
         this.precio = precio;
-        this.Proveedor = Proveedor;
+        this.proveedor = proveedor;
+        this.cantidad = cantidad;
     }
 
     public String getNombre() {
@@ -62,17 +63,25 @@ public class Producto {
     }
 
     public String getProveedor() {
-        return Proveedor;
+        return proveedor;
     }
 
-    public void setProveedor(String Proveedor) {
-        this.Proveedor = Proveedor;
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
     }
+    
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    
 
     @Override
     public String toString() {
-        return "Producto{" + "nombre=" + nombre + ", identificacion=" + identificacion + ", numeroSerie=" + numeroSerie + ", precio=" + precio + ", Proveedor=" + Proveedor + '}';
+        return "Producto{" + "nombre=" + nombre + ", identificacion=" + identificacion + ", numeroSerie=" + numeroSerie + ", precio=" + precio + ", Proveedor=" + proveedor + '}';
     }
-    
-    
+
 }
