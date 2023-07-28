@@ -13,14 +13,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Julian
  */
-public class Ventana extends javax.swing.JFrame {
+public class Inventario extends javax.swing.JFrame {
 
     /**
-     * Creates new form Ventana
+     * Creates new form Inventario
      */
     DefaultTableModel modelo;
 
-    public Ventana() {
+    public Inventario() {
         initComponents();
         modelo = new DefaultTableModel();
         modelo.addColumn("Producto");
@@ -29,7 +29,7 @@ public class Ventana extends javax.swing.JFrame {
         this.tablaGenerada.setModel(modelo);
 
     }
-    private ArrayList<Producto> listaProductos = new ArrayList();
+    public static ArrayList<Producto> listaProductos = new ArrayList();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,6 +64,7 @@ public class Ventana extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaGenerada = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
+        facturacion = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
 
@@ -259,21 +260,34 @@ public class Ventana extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("COMERCIALIZADORA OLIVANDERS");
 
+        facturacion.setText("FACTURACIÓN");
+        facturacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                facturacionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(69, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(69, Short.MAX_VALUE))))
+                        .addGap(184, 184, 184)
+                        .addComponent(facturacion)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +297,9 @@ public class Ventana extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88))
+                .addGap(38, 38, 38)
+                .addComponent(facturacion)
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -383,6 +399,14 @@ public class Ventana extends javax.swing.JFrame {
                 + "visualizar los cambios con la eliminación");
     }//GEN-LAST:event_eliminarActionPerformed
 
+    private void facturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturacionActionPerformed
+        // TODO add your handling code here:
+        Factura f= new Factura();
+        
+        f.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_facturacionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -400,20 +424,21 @@ public class Ventana extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana().setVisible(true);
+                new Inventario().setVisible(true);
             }
         });
     }
@@ -422,6 +447,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton agregar;
     private javax.swing.JTextField cantidad;
     private javax.swing.JButton eliminar;
+    private javax.swing.JButton facturacion;
     private javax.swing.JTextField filaEliminarModificar;
     private javax.swing.JTextField identificacionProducto;
     private javax.swing.JLabel jLabel1;

@@ -16,7 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Ventana v = new Ventana();
+        Inventario v = new Inventario();
         v.setVisible(true);
         
     }
